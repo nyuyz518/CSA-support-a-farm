@@ -23,11 +23,9 @@ ActiveRecord::Schema.define(version: 2018_07_30_183235) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "farm_id"
-    t.integer "wish_list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["farm_id"], name: "index_products_on_farm_id"
-    t.index ["wish_list_id"], name: "index_products_on_wish_list_id"
   end
 
   create_table "shares", force: :cascade do |t|
@@ -49,12 +47,12 @@ ActiveRecord::Schema.define(version: 2018_07_30_183235) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "wish_lists", force: :cascade do |t|
+  create_table "wish_list_items", force: :cascade do |t|
     t.string "item"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_wish_lists_on_user_id"
+    t.index ["user_id"], name: "index_wish_list_items_on_user_id"
   end
 
 end
