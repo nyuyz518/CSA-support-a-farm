@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  price: 1
+  frequency: false
+  share: one
+  wish_list: one
+
+two:
+  category: MyString
+  price: 1
+  frequency: false
+  share: two
+  wish_list: two
