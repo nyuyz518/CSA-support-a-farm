@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_183235) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
+    t.string "item"
     t.integer "farm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 2018_07_30_183235) do
   end
 
   create_table "shares", force: :cascade do |t|
+    t.string "category"
     t.integer "price"
-    t.boolean "frequency"
+    t.date "start_date"
+    t.date "end_date"
     t.integer "user_id"
     t.integer "farm_id"
     t.datetime "created_at", null: false

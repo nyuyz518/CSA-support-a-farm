@@ -2,14 +2,24 @@
 
   <h3><%= @user.name %></h3>
 
+  <h4>First Pickup Date: <%= @user.shares.first.start_date %></h4>
+  <h4>Last Pickup Date: <%= @user.shares.first.end_date %></h4>
+
+<% @user.shares.each do |share|%>
+<h4><%= share.category %> | $<%= share.price %> per Share</h4>
+<% end %>
+
+
   <h3>My Wish List for the <%= Time.now.year %> Growing Season:</h3>
   <ul>
-    <% wish_list_items.each do |item| %>
+    <% @user.wish_list_items.each do |item| %>
       <li> <%= item.item %></li>
     <% end %>
   </ul>
 
-  <h4><%= link_to "My Produce Wish List", new_wish_list_item_path %></h4>
+  <!-- <h4><%#= link_to "My Produce Wish List", new_wish_list_item_path %></h4> -->
+
+
 
   <!-- Like to have:
   validate for FULL name

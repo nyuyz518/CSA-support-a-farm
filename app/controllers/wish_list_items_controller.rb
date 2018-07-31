@@ -3,6 +3,7 @@ class WishListItemsController < ApplicationController
 
   def index
     @wish_list_items = WishListItem.all
+    @users = User.all
   end
 
   def new

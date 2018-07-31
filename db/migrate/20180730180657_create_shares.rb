@@ -1,8 +1,10 @@
 class CreateShares < ActiveRecord::Migration[5.2]
   def change
     create_table :shares do |t|
+      t.string :category
       t.integer :price
-      t.boolean :frequency
+      t.date :start_date
+      t.date :end_date
       t.references :user, foreign_key: true
       t.references :farm, foreign_key: true
 
