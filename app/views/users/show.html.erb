@@ -1,0 +1,17 @@
+<h1>User's Home Page!</h1>
+
+  <h3><%= @user.name %></h3>
+
+  <h3>My Wish List for the <%= Time.now.year %> Growing Season:</h3>
+  <ul>
+    <% wish_list_items.each do |item| %>
+      <li> <%= item.item %></li>
+    <% end %>
+  </ul>
+
+  <h4><%= link_to "My Produce Wish List", new_wish_list_item_path %></h4>
+
+  <!-- Like to have:
+  validate for FULL name
+  vaildate user_name: uniqueness, length
+  validate email input type -->
