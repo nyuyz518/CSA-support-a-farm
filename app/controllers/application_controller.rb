@@ -17,7 +17,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def cart
-  #   session[:cart] ||= []
-  # end
 end

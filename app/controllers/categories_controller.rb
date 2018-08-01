@@ -4,11 +4,8 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  # def add_to_cart
-  #   byebug
-  #   @category = Category.find(params[:id])
-  #   cart << @category.id
-  #   session[:cart] = cart
-  # end
+  def show
+    @category = Category.find_by(id: params[:id])
+  end
 
 end

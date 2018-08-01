@@ -1,0 +1,8 @@
+<h3><%= @category.name %></h3>
+<li>Total Number of Pickups: <%= @category.pickup_count %></li>
+<li>Price Per Pickup: $<%= @category.price_per_pickup %></li>
+<li>Total Price for Season: $<%= @category.price_per_pickup * @category.pickup_count%></li>
+<li>First Pickup Date: <%= @category.start_date %></li>
+<li>Last Pickup Date: <%= @category.end_date %></li>
+
+<h3><%= link_to "View All Available Share Categories", categories_path %></h3>

@@ -2,9 +2,9 @@
 
 <%= link_to "View our Farm's Details", farms_path %>
 <% @categories.each do |category| %>
-  <h3><%= category.name %></h3>
-  <li>Number of Pickups: <%= category.pickup_count %></li>
-  <li>Price for each Pickup: $<%= category.price_per_pickup %></li>
+  <h3><%= link_to category.name, category %></h3>
+  <li>Total Number of Pickups: <%= category.pickup_count %></li>
+  <li>Price Per Pickup: $<%= category.price_per_pickup %></li>
   <li>Total Price for Season: $<%= category.price_per_pickup * category.pickup_count%></li>
   <li>First Pickup Date: <%= category.start_date %></li>
   <li>Last Pickup Date: <%= category.end_date %></li>

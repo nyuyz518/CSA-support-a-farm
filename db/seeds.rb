@@ -15,23 +15,18 @@ users = [
 
 users.each {|user| User.create(user)}
 
-farms = [
-  # {name: 'Green Hills User', location: "Melville", year_est: 1948},
-  {name: 'Hudson Valley Farm', location: "Columbia County", year_est: 1962}
-]
-
-farms.each {|farm| Farm.create(farm)}
+Farm.create(name: 'Riverview Pastures', location: "Livingston, Columbia County, New York", year_est: 1962)
 
 categories = [
   {name: 'Fruit (Full Share)', price_per_pickup: 9, pickup_count: 18, start_date: Date.new(2018,6,30), end_date: Date.new(2018,10,27)},
-  {name: 'Vegetable (Full Share)', price_per_pickup: 23, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
-  {name: 'Eggs (Full Share)', price_per_pickup: 6, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
-  {name: 'Meat (Full Share)', price_per_pickup: 17, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
-  {name: 'Dairy (Full Share)', price_per_pickup: 12, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
   {name: 'Fruit (Half Share)', price_per_pickup: 10, pickup_count: 9, start_date: Date.new(2018,6,30), end_date: Date.new(2018,10,20)},
+  {name: 'Vegetable (Full Share)', price_per_pickup: 23, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
   {name: 'Vegetable (Half Share)', price_per_pickup: 25, pickup_count: 13, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,10)},
+  {name: 'Eggs (Full Share)', price_per_pickup: 6, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
   {name: 'Eggs (Half Share)', price_per_pickup: 7, pickup_count: 13, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,10)},
+  {name: 'Meat (Full Share)', price_per_pickup: 17, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
   {name: 'Meat (Half Share)', price_per_pickup: 19, pickup_count: 13, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,10)},
+  {name: 'Dairy (Full Share)', price_per_pickup: 12, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
   {name: 'Dairy (Half Share)', price_per_pickup: 13, pickup_count: 13, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,10)}
 ]
 

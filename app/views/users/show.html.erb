@@ -1,28 +1,13 @@
 <h1><%= @user.user_name %>'s Home Page</h1>
-
-  <% if @user.categories.uniq == @user.categories %>
-    <% @user.categories.each do |category| %>
-        <h3><%= category.name %></h3>
-        <li>Number of Shares Purchased: 1</li>
-        <li>Price Per Pickup: $<%= category.price_per_pickup %></li>
-        <li>Total Number of Pickups: <%= category.pickup_count %></li>
-        <li>Total Price: $<%= category.price_per_pickup * category.pickup_count %></li>
-      <% end %>
-  <% else %>
-    <% @user.categories.uniq.each do |category| %>
-      <h3><%= category.name %></h3>
-      <li>Number of Shares Purchased: UPDATE ME </li>
-      <li>Price Per Pickup: $<%= category.price_per_pickup %></li>
-      <li>Total Number of Pickups: <%= category.pickup_count %></li>
-      <li>Total Price: $<%= category.price_per_pickup * category.pickup_count %></li>
-    <% end %>
+  <% @user.categories.each do |category| %>
+    <h3><%= category.name %></h3>
   <% end %>
 
 <h3><%= link_to "View All Available Share Categories", categories_path %></h3>
+<h3><%= link_to "Add a Share to My Account", new_share_path %></h3>
+
 
   <h3>My Wish List for the <%= Time.now.year %> Growing Season:</h3>
-  <ul>
     <% @user.wish_list_items.each do |item| %>
       <li> <%= item.item %></li>
     <% end %>
-  </ul>
