@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# users = [
-#   { name: 'Lily', user_name: "nyuyz518", password: "password1" },
-#   { name: 'Claudia', user_name: "claud", password: "password2" },
-#   { name: 'Lin', user_name: "lin!", password: "password3" },
-#   { name: 'Rose', user_name: "rosey", password: "password4" },
-# ]
-#
-# users.each {|user| User.create(user)}
+users = [
+  { user_name: "claudia", password: "password1" },
+  { user_name: "lily", password: "password2" },
+  { user_name: "lin", password: "password3" },
+  { user_name: "rose", password: "password4" }
+]
+
+users.each {|user| User.create(user)}
 
 farms = [
   # {name: 'Green Hills User', location: "Melville", year_est: 1948},

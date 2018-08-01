@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by({ username: params[:username] })
+    @user = User.find_by({ user_name: params[:user_name] })
 
     if !!@user && @user.authenticate(params[:password])
       session[:logged_in_user_id] = @user.id
@@ -13,13 +13,14 @@ class SessionsController < ApplicationController
       redirect_to @user
     else
       flash[:notice] = "Invalid username or password"
-      redirect_to new_session_path
+      redirect_to login_path
     end
   end
 
   def destroy
-    session.delete(:logged_in_user_id)
+    byebug
+    session.delete :logged_in_user_id
     flash[:notice] = "Logout successful."
-    redirect_to new_session_path
+    redirect_to controller: "users", action: "login_path"
   end
 end

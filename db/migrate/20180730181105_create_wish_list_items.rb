@@ -4,7 +4,6 @@ class CreateWishListItems < ActiveRecord::Migration[5.2]
       t.string :item
       t.references :user, foreign_key: true
 
-
       t.timestamps
     end
   end

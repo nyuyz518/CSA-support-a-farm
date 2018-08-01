@@ -6,6 +6,7 @@ class CreateCategories < ActiveRecord::Migration[5.2]
       t.integer :pickup_count
       t.date :start_date
       t.date :end_date
+      
       t.timestamps
     end
   end

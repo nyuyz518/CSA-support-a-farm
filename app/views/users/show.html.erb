@@ -1,4 +1,4 @@
-<h1><%= @user.name %>'s Home Page</h1>
+<h1><%= @user.user_name %>'s Home Page</h1>
 
   <% if @user.categories.uniq == @user.categories %>
     <% @user.categories.each do |category| %>
@@ -18,10 +18,6 @@
     <% end %>
   <% end %>
 
-<!--
-Number of Pickups: <%# share.category.pickup_count %>
-Cost of Each Pickup: <%# share.category.price_per_pickup %> -->
-
 
   <h3>My Wish List for the <%= Time.now.year %> Growing Season:</h3>
   <ul>
@@ -30,11 +26,6 @@ Cost of Each Pickup: <%# share.category.price_per_pickup %> -->
     <% end %>
   </ul>
 
-  <!-- <h4><%#= link_to "My Produce Wish List", new_wish_list_item_path %></h4> -->
-
-
-
-  <!-- Like to have:
-  validate for FULL name
-  vaildate user_name: uniqueness, length
-  validate email input type -->
+  <%= form_tag ({controller: "sessions", method: "post", action: "destroy"}) do %>
+     <input type="submit" value="Logout">
+  <% end %>

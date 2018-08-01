@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i{show}
+  skip_before_action :authorized, only: [:new, :create]
 
   def show
   end
@@ -9,23 +9,24 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(user_params)
-    redirect_to users_path
+    @user = User.create(user_params)
+    if @user.valid?
+      flash[:notice] = "Account successfully created!"
+      session[:logged_in_user_id] = @user.id
+      redirect_to @user
+    else
+      render :new
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit( :name, :user_name, :password,
+    params.require(:user).permit(:user_name, :password,
       wish_list_items_attributes: [
         :item,
         :user_id
       ]
     )
   end
-
-  def set_user
-    @user = User.find_by(id: params[:id])
-  end
-
 end
