@@ -18,9 +18,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    byebug
     session.delete :logged_in_user_id
     flash[:notice] = "Logout successful."
-    redirect_to controller: "users", action: "login_path"
+    redirect_to login_path
   end
 end
