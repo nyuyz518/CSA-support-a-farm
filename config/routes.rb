@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :categories
+  post "/", to: "categories#add_to_cart"
   resources :users
   resources :wish_list_items
   resources :farms
