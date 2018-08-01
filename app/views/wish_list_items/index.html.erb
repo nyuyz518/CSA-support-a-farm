@@ -1,9 +1,0 @@
-<h1>My Produce Wish List for the <%= Time.now.year %> Growing Season</h1>
-
-<ul>
-  <% @users.each do |user| %>
-    <% user.wish_list_items.each do |item| %>
-      <li> <%= item.item %></li>
-    <% end %>
-  <% end %>
-</ul>

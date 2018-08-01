@@ -1,1 +1,8 @@
 <h1>Add an Item to My Produce Wishlist</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.fields_for :wish_list_items do |item| %>
+    <%= item.text_field :item %><br>
+  <% end %>
+  <%= f.submit %>
+<% end %>
