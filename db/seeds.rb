@@ -22,6 +22,25 @@ farms = [
 
 farms.each {|farm| Farm.create(farm)}
 
+categories = [
+  {name: 'Fruit (Full Share)', price_per_pickup: 9, pickup_count: 18, start_date: Date.new(2018,6,30), end_date: Date.new(2018,10,27)},
+  {name: 'Vegetable (Full Share)', price_per_pickup: 23, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
+  {name: 'Eggs (Full Share)', price_per_pickup: 6, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
+  {name: 'Meat (Full Share)', price_per_pickup: 17, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
+  {name: 'Dairy (Full Share)', price_per_pickup: 12, pickup_count: 26, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,17)},
+  {name: 'Fruit (Half Share)', price_per_pickup: 10, pickup_count: 9, start_date: Date.new(2018,6,30), end_date: Date.new(2018,10,20)},
+  {name: 'Vegetable (Half Share)', price_per_pickup: 25, pickup_count: 13, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,10)},
+  {name: 'Eggs (Half Share)', price_per_pickup: 7, pickup_count: 13, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,10)},
+  {name: 'Meat (Half Share)', price_per_pickup: 19, pickup_count: 13, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,10)},
+  {name: 'Dairy (Half Share)', price_per_pickup: 13, pickup_count: 13, start_date: Date.new(2018,5,26), end_date: Date.new(2018,11,10)}
+]
+
+categories.each {|category| Category.create(category)}
+
+10.times do
+  Share.create({user_id: User.all.sample.id, farm_id: Farm.all.sample.id, category_id: Category.all.sample.id})
+end
+
 products = [
   {item: "Arugula"},
   {item: "Basil"},
@@ -131,13 +150,3 @@ wish_list_items = [
 
 wish_list_items = wish_list_items.map { |item| item.merge( { user_id: User.all.sample.id } ) }
 wish_list_items.each { |item| WishListItem.create(item) }
-#
-
-4.times do
-  Share.create(
-    {user_id: User.all.sample.id, farm_id: Farm.all.sample.id, category: "Dairy", price: "200", start_date: Date.new(2018, 06, 23), end_date: Date.new(2018, 11, 24)},
-    {user_id: User.all.sample.id, farm_id: Farm.all.sample.id, category: "Vegetables", price: "300", start_date: Date.new(2018, 06, 23), end_date: Date.new(2018, 11, 24)},
-    {user_id: User.all.sample.id, farm_id: Farm.all.sample.id, category: "Fruit", price: "300", start_date: Date.new(2018, 06, 23), end_date: Date.new(2018, 11, 24)},
-    {user_id: User.all.sample.id, farm_id: Farm.all.sample.id, category: "Meat", price: "400", start_date: Date.new(2018, 06, 23), end_date: Date.new(2018, 11, 24)}
-  )
-end

@@ -1,13 +1,26 @@
-<h1>User's Home Page!</h1>
+<h1><%= @user.name %>'s Home Page</h1>
 
-  <h3><%= @user.name %></h3>
+  <% if @user.categories.uniq == @user.categories %>
+    <% @user.categories.each do |category| %>
+        <h3><%= category.name %></h3>
+        <li>Number of Shares Purchased: 1</li>
+        <li>Price Per Pickup: $<%= category.price_per_pickup %></li>
+        <li>Total Number of Pickups: <%= category.pickup_count %></li>
+        <li>Total Price: $<%= category.price_per_pickup * category.pickup_count %></li>
+      <% end %>
+  <% else %>
+    <% @user.categories.uniq.each do |category| %>
+      <h3><%= category.name %></h3>
+      <li>Number of Shares Purchased: UPDATE ME </li>
+      <li>Price Per Pickup: $<%= category.price_per_pickup %></li>
+      <li>Total Number of Pickups: <%= category.pickup_count %></li>
+      <li>Total Price: $<%= category.price_per_pickup * category.pickup_count %></li>
+    <% end %>
+  <% end %>
 
-  <h4>First Pickup Date: <%= @user.shares.first.start_date %></h4>
-  <h4>Last Pickup Date: <%= @user.shares.first.end_date %></h4>
-
-<% @user.shares.each do |share|%>
-<h4><%= share.category %> | $<%= share.price %> per Share</h4>
-<% end %>
+<!--
+Number of Pickups: <%# share.category.pickup_count %>
+Cost of Each Pickup: <%# share.category.price_per_pickup %> -->
 
 
   <h3>My Wish List for the <%= Time.now.year %> Growing Season:</h3>

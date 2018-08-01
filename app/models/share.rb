@@ -1,6 +1,7 @@
 class Share < ApplicationRecord
   belongs_to :user
   belongs_to :farm
+  belongs_to :category
 
   # def share_counts_by_category
   #   self.all.category.count
@@ -12,4 +13,6 @@ class Share < ApplicationRecord
   #     total_cost << s.cost
   #   end
   # end
+
+
 end

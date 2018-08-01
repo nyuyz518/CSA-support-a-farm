@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_183235) do
+ActiveRecord::Schema.define(version: 2018_07_31_220747) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "price_per_pickup"
+    t.integer "pickup_count"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "farms", force: :cascade do |t|
     t.string "name"
@@ -29,14 +39,12 @@ ActiveRecord::Schema.define(version: 2018_07_30_183235) do
   end
 
   create_table "shares", force: :cascade do |t|
-    t.string "category"
-    t.integer "price"
-    t.date "start_date"
-    t.date "end_date"
     t.integer "user_id"
     t.integer "farm_id"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_shares_on_category_id"
     t.index ["farm_id"], name: "index_shares_on_farm_id"
     t.index ["user_id"], name: "index_shares_on_user_id"
   end

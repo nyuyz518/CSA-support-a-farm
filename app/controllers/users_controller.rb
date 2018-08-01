@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    # @user.wish_list_items.build(item: 'placeholder text')
   end
 
   def create
