@@ -1,10 +1,17 @@
-<h1><%= @user.user_name %>'s Home Page</h1>
+<h1>My <%= Farm.first.name %> CSA Account Details</h1>
+
+<h2> <%=flash[:notice]  %></h2>
   <% @user.categories.each do |category| %>
-    <h3><%= link_to category.name, category %></h3>
+    <h3><%=  category.name %> </h3>
+    <ul>
+        <li>Numbers of Pickups: <%= category.pickup_count %></li>
+        <li>Total Cost for the Season: <%= category.price_per_pickup * category.pickup_count %></li>
+    </ul>
+    <%= button_to "View Full Details", category, :controller => "categories", :method => :get %> <br>
   <% end %>
 
-<h3><%= link_to "View All Available Share Categories", categories_path %></h3>
-<h3><%= link_to "Add a Share to My Account", new_share_path %></h3>
+<%= button_to "View All of our Offerings", categories_path,:controller => "categories", :method => :get %> <br>
+<%= button_to "Add a Share to My Account", new_share_path,:controller => "shares", :method => :get %>
 
 
   <h3>My Wish List for the <%= Time.now.year %> Growing Season:</h3>

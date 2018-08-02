@@ -1,6 +1,7 @@
 <h2>All Available Share Types </h2>
 
-<%= link_to "View our Farm's Details", farms_path %>
+<%= link_to "Learn More about Our Farm", farms_path %>
+
 <% @categories.each do |category| %>
   <h3><%= link_to category.name, category %></h3>
   <li>Total Number of Pickups: <%= category.pickup_count %></li>
@@ -12,5 +13,8 @@
     <li>Pickup Frequency: Weekly</li>
   <% else %>
     <li>Pickup Frequency: Every Other Week</li>
-  <% end %>
+  <% end %> <br>
+
+  <%= button_to "Add This Share to My Account", new_share_path, controller: "shares", method: :get %> <br>
+
 <% end %>

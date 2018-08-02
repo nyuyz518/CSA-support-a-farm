@@ -3,6 +3,8 @@
 <li>Price Per Pickup: $<%= @category.price_per_pickup %></li>
 <li>Total Price for Season: $<%= @category.price_per_pickup * @category.pickup_count%></li>
 <li>First Pickup Date: <%= @category.start_date %></li>
-<li>Last Pickup Date: <%= @category.end_date %></li>
+<li>Last Pickup Date: <%= @category.end_date %></li> <br>
 
-<h3><%= link_to "View All Available Share Categories", categories_path %></h3>
+<%= button_to "Return to Your Profile", user_path(current_user), :controller => "users", :method => :get %> <br>
+
+<%= button_to "View All Available Shares", categories_path, :method => :get %>
