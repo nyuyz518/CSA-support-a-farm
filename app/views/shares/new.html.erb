@@ -1,10 +1,9 @@
 <h1>Add a Share to My Account</h1>
 
 <%= form_for @share do |f| %>
-  <%= f.label "Share Category" %>
-  
+  <h3><%= f.label "Share Category" %></h3>
   <%= f.collection_select :category_id, Category.all, :id, :name %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
-<%= f.hidden_field :farm_id, :value => Farm.first.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :farm_id, :value => Farm.first.id %>
   <%= f.submit %>
 <% end %>
