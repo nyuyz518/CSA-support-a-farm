@@ -6,7 +6,6 @@ class SharesController < ApplicationController
 
   def create
     @share = Share.new(share_params)
-    byebug
     if @share.save
       flash[:notice] = "New share successfully added to your account!"
       redirect_to user_path(current_user)

@@ -7,3 +7,5 @@
   <%= f.hidden_field :farm_id, :value => Farm.first.id %>
   <%= f.submit %>
 <% end %>
+
+<%= button_to "Return to Profile", user_path(current_user), :controller => "users", :method => :get %>

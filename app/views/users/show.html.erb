@@ -1,6 +1,6 @@
 <h1><%= @user.user_name %>'s Home Page</h1>
   <% @user.categories.each do |category| %>
-    <h3><%= category.name %></h3>
+    <h3><%= link_to category.name, category %></h3>
   <% end %>
 
 <h3><%= link_to "View All Available Share Categories", categories_path %></h3>
