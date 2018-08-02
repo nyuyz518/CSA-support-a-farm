@@ -1,0 +1,26 @@
+<div><h1>Welcome to <%= @farm.name %></h1></div>
+
+<div> <%= image_tag("farmhouse_with_clouds.jpg", :alt => "Our Homestead") %></div>
+<div>
+  <p>To add: description of CSA program</p>
+</div>
+<br>
+<div>
+  <p>To add: details about the farm</p>
+</div>
+
+<div><h3>Produce We've Grown for Past CSA Seasons</h3></div>
+<div><p class="lead">While we won't grow every single food on this list every year, we will make sure to have a large variety of produce for your enjoyment! We look to your <%= link_to "Wish Lists", wish_list_items_path %> when planning our growing season, since we value your support and participation in our CSA.</p></div>
+<div class="container-fluid">
+  <div>
+    <% @farm.products.each do |product| %>
+    <ul class="list-group">
+      <li class="list-group-item col-xs-6 col-sm-4 col-md-3"><%= product.item %></li>
+    </ul>
+  <% end %>
+  </div>
+</div>
+
+<!-- text area to leave comments -->
+<!-- contact us -->
+<!-- hyperlinks to social media -->

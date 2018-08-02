@@ -1,9 +1,12 @@
 <h3><%= @category.name %></h3>
-<li>Total Number of Pickups: <%= @category.pickup_count %></li>
-<li>Price Per Pickup: $<%= @category.price_per_pickup %></li>
-<li>Total Price for Season: $<%= @category.price_per_pickup * @category.pickup_count%></li>
-<li>First Pickup Date: <%= @category.start_date %></li>
-<li>Last Pickup Date: <%= @category.end_date %></li> <br>
+<ul>
+  <li>Total Number of Pickups: <%= @category.pickup_count %></li>
+  <li>Price Per Pickup: $<%= @category.price_per_pickup %></li>
+  <li>Total Price for Season: $<%= @category.price_per_pickup * @category.pickup_count%></li>
+  <li>First Pickup Date: <%= @category.start_date.strftime("%B %e, %Y") %></li>
+  <li>Last Pickup Date: <%= @category.end_date.strftime("%B %e, %Y") %></li>
+</ul>
+<br>
 
 <%= button_to "Return to Your Profile", user_path(current_user), :controller => "users", :method => :get %> <br>
 

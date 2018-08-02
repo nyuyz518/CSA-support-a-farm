@@ -1,15 +1,19 @@
-<h3>Create an Account</h3>
+<div><h1>CREATE AN ACCOUNT</h1></div>
 
-<%= form_for @user do |f| %>
+<div><h3><%= flash[:notice] %></h3></div>
+<div>
+  <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+      <h3><%= message %></h3>
     <% end %>
   <% end %>
-
-  <%= f.label :user_name %>
+  <h4><%= f.label "Username" %></h4>
   <%= f.text_field :user_name %>
-  <%= f.label :password %>
+  <br>
+  <h4><%= f.label :password %></h4>
   <%= f.password_field :password %>
+  <br> <br>
   <%= f.submit %>
+</div>
 <% end %>

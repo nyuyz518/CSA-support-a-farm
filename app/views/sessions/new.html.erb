@@ -3,9 +3,11 @@
 <h3><%= flash[:notice] %></h3>
 
 <%= form_tag sessions_path do %>
-  <%= label_tag "Username" %>
+  <h4><%= label_tag "Username" %></h4>
   <%= text_field_tag :user_name %>
-  <%= label_tag "Password" %>
+  <br>
+  <h4><%= label_tag "Password" %></h4>
   <%= password_field_tag :password %>
+  <br> <br>
   <%= submit_tag "Sign In" %>
 <% end %>

@@ -1,20 +1,24 @@
 <h1>My <%= Farm.first.name %> CSA Account Details</h1>
 
 <h2> <%=flash[:notice]  %></h2>
+
   <% @user.categories.each do |category| %>
-    <h3><%=  category.name %> </h3>
+    <h3><%= category.name %> </h3>
     <ul>
-        <li>Numbers of Pickups: <%= category.pickup_count %></li>
-        <li>Total Cost for the Season: <%= category.price_per_pickup * category.pickup_count %></li>
+      <li>Numbers of Pickups: <%= category.pickup_count %></li>
+      <li>Total Cost for the Season: <%= category.price_per_pickup * category.pickup_count %></li>
     </ul>
     <%= button_to "View Full Details", category, :controller => "categories", :method => :get %> <br>
   <% end %>
 
-<%= button_to "View All of our Offerings", categories_path,:controller => "categories", :method => :get %> <br>
-<%= button_to "Add a Share to My Account", new_share_path,:controller => "shares", :method => :get %>
+  <%= button_to "View All of our Offerings", categories_path, :controller => "categories", :method => :get %> <br>
+  <%= button_to "Add a Share to My Account", new_share_path, :controller => "shares", :method => :get %>
 
-
-  <h3>My Wish List for the <%= Time.now.year %> Growing Season:</h3>
+  <h3>My Wish List for the <%= Time.now.year %> Growing Season</h3>
     <% @user.wish_list_items.each do |item| %>
-      <li> <%= item.item %></li>
+      <ul>
+        <li> <%= item.item %></li>
+      </ul>
     <% end %>
+
+    <%= button_to "Add an Item to My Wish List", wish_list_items_path, :controller => "wish_list_items", :method => :get %>

@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Csa</title>
+    <title>CSA</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Bootstrap CSS Library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
   </head>
 
   <body>
-    <% if logged_in? %>
-      <h3>Welcome, <%= current_user.user_name %></h3>
-      <%= button_to "Logout", logout_path, method: :delete %>
-    <% else %>
-      <%= button_to "Sign Up", new_user_path, method: :get %>
-      <%= button_to "Login", login_path, method: :get %>
-    <% end %>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        <% if logged_in? %>
+        <div>
+          <div><p class="navbarleft navbar-text">Welcome, <%= current_user.user_name %></p></div>
+          <div><%= button_to "Logout", logout_path, method: :delete %></div>
+        </div>
+        <% else %>
+          <%= button_to "Sign Up", new_user_path, method: :get %>
+          <%= button_to "Login", login_path, method: :get %>
+        <% end %>
+        </div>
+      </div>
+    </nav>
+
     <%= yield %>
+
   </body>
 </html>

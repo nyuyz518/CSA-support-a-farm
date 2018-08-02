@@ -1,20 +1,27 @@
 <h2>All Available Share Types </h2>
 
 <%= link_to "Learn More about Our Farm", farms_path %>
+<p>details about how this program works, difference between full and half shares, etc</p>
 
-<% @categories.each do |category| %>
-  <h3><%= link_to category.name, category %></h3>
-  <li>Total Number of Pickups: <%= category.pickup_count %></li>
-  <li>Price Per Pickup: $<%= category.price_per_pickup %></li>
-  <li>Total Price for Season: $<%= category.price_per_pickup * category.pickup_count%></li>
-  <li>First Pickup Date: <%= category.start_date %></li>
-  <li>Last Pickup Date: <%= category.end_date %></li>
-  <% if category.name =~ /Full/ %>
-    <li>Pickup Frequency: Weekly</li>
-  <% else %>
-    <li>Pickup Frequency: Every Other Week</li>
-  <% end %> <br>
-
-  <%= button_to "Add This Share to My Account", new_share_path, controller: "shares", method: :get %> <br>
-
-<% end %>
+<div class="container-fluid">
+  <% @categories.each do |category| %>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+    <h3><%= link_to category.name, category %></h3>
+    <ul class="list-group">
+      <li class="list-group-item">Total Number of Pickups: <%= category.pickup_count %></li>
+      <li class="list-group-item">Price Per Pickup: $<%= category.price_per_pickup %></li>
+      <li class="list-group-item">Total Price for Season: $<%= category.price_per_pickup * category.pickup_count%></li>
+      <li class="list-group-item">First Pickup Date: <%= category.start_date.strftime("%B %e, %Y") %></li>
+      <li class="list-group-item">Last Pickup Date: <%= category.end_date.strftime("%B %e, %Y") %></li>
+      <% if category.name =~ /Full/ %>
+        <li class="list-group-item">Pickup Frequency: Weekly</li>
+      <% else %>
+        <li class="list-group-item">Pickup Frequency: Every Other Week</li>
+      <% end %>
+    </ul>
+  <%= button_to "Add This Share to My Account", new_share_path, controller: "shares", method: :get %>
+  </div>
+  </div>
+  <% end %>
+</div>
