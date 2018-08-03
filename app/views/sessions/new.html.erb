@@ -1,8 +1,13 @@
-<h1>LOGIN</h1>
+<div class="page-header">
+  <h1>LOGIN<small>  Or Click to <%= link_to "Create an Account", new_user_path %></small></h1>
+</div>
 
-<h3><%= flash[:notice] %></h3>
+<div class="container-fluid">
+  <h3><%= flash[:notice] %></h3>
+</div>
 
-<%= form_tag sessions_path do %>
+<div class="container-fluid">
+  <%= form_tag sessions_path do %>
   <h4><%= label_tag "Username" %></h4>
   <%= text_field_tag :user_name %>
   <br>
@@ -11,3 +16,7 @@
   <br> <br>
   <%= submit_tag "Sign In" %>
 <% end %>
+</div>
+<br>
+<div class="container-fluid"><%= image_tag("shovel_in_earth.jpg", :alt => "Shovel In Earth", :height => 500) %>
+</div>

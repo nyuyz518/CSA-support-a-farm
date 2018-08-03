@@ -3,7 +3,7 @@
   <p>Learn more about our program <%= link_to "here", farm_path(Farm.first.id) %>.</p>
 </div>
 
-<div class="container-fluid">>
+<div class="container-fluid">
   <h2> <%=flash[:notice]  %></h2>
 </div>
 
@@ -46,8 +46,8 @@
         <li class="list-group-item"> <%= item.item %></li>
       </ul>
     </div>
-  </div>
-  <% end %>
+</div>
+<% end %>
 </div>
 <div class="container-fluid">
     <%= button_to "Add an Item to My Wish List", wish_list_items_path, :controller => "wish_list_items", :method => :get %>
