@@ -142,6 +142,8 @@ wish_list_items = [
   {item: "Turnips"},
   {item: "Watermelon"}
 ]
-
-wish_list_items = wish_list_items.map { |item| item.merge( { user_id: User.all.sample.id } ) }
 wish_list_items.each { |item| WishListItem.create(item) }
+
+20.times do
+  UserItem.create({user_id: User.all.sample.id, wish_list_item_id: WishListItem.all.sample.id})
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_220747) do
+ActiveRecord::Schema.define(version: 2018_08_03_141207) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2018_07_31_220747) do
     t.index ["user_id"], name: "index_shares_on_user_id"
   end
 
+  create_table "user_items", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "wish_list_item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_items_on_user_id"
+    t.index ["wish_list_item_id"], name: "index_user_items_on_wish_list_item_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "user_name"
     t.string "password_digest"
@@ -58,10 +67,8 @@ ActiveRecord::Schema.define(version: 2018_07_31_220747) do
 
   create_table "wish_list_items", force: :cascade do |t|
     t.string "item"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_wish_list_items_on_user_id"
   end
 
 end

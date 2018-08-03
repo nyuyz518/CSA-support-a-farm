@@ -1,6 +1,10 @@
 class WishListItemsController < ApplicationController
   before_action :set_wish_list_item, only: [:create, :destroy]
 
+  def index
+  @wish_list_items = WishListItem.all   
+  end
+
   def new
     @wish_list_item = WishListItem.new
   end
