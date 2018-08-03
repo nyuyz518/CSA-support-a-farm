@@ -1,0 +1,18 @@
+
+<div class="page-header">
+  <h1> Add an Item to My Wish List </h1>
+</div>
+
+<div class="container-fluid">
+<%= form_for @user_item do |f| %>
+  <h3><%= f.label "Item Name" %></h3>
+  <%= f.collection_select :wish_list_item_id, WishListItem.all, :id, :item %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+<br><br>
+  <%= f.submit "Add to Wish List" %>
+  <br><br>
+<% end %>
+</div>
+
+<div class="container-fluid"><%= image_tag("blueberries.jpg", :alt => "blueberries", :height => 500) %>
+</div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :user_items
+  resources :user_items, only: [:new, :create, :destroy]
   root to: 'users#show'
   resources :categories, only: [:index, :show]
   resources :users, only: [:show, :new, :create]
