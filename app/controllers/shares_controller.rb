@@ -8,7 +8,7 @@ class SharesController < ApplicationController
     @share = Share.new(share_params)
     if @share.save
       flash[:notice] = "New share successfully added to your account!"
-      redirect_to user_path(current_user)
+      redirect_to profile_path
     else
       render :new
     end

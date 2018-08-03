@@ -1,12 +1,12 @@
-<h2>All Available Share Types </h2>
+<h1>All Available Share Types </h1>
 
-<%= link_to "Learn More about Our Farm", farms_path %>
+<%= link_to "Learn More about Our Farm", farm_path(Farm.first.id) %>
 <p>details about how this program works, difference between full and half shares, etc</p>
 
 <div class="container-fluid">
   <% @categories.each do |category| %>
   <div class="row">
-    <div class="col-sm-6 col-md-4">
+    <div class="col-xs-6 col-sm-4 col-md-3">
     <h3><%= link_to category.name, category %></h3>
     <ul class="list-group">
       <li class="list-group-item">Total Number of Pickups: <%= category.pickup_count %></li>

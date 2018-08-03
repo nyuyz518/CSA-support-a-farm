@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.valid?
       flash[:notice] = "Account successfully created!"
       session[:logged_in_user_id] = @user.id
-      redirect_to @user
+      redirect_to profile_path
     else
       render :new
     end

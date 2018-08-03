@@ -8,7 +8,7 @@ class WishListItemsController < ApplicationController
   def create
     @wish_list_item = WishListItem.new(wish_list_item_params)
     if @WishListItem.save
-      redirect_to user_path
+      redirect_to profile_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class WishListItemsController < ApplicationController
       redirect_to user_path
       flash[:notice] = "Item deleted from Wish List"
     else
-      redirect_to user_path
+      redirect_to profile_path
     end
   end
 
