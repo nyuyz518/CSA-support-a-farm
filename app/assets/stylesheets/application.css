@@ -15,3 +15,11 @@
  */
 
  body { padding-top: 70px; }
+
+.navbarstyling {
+  text-decoration: none;
+  display: inline;
+  float: left;
+  padding-right: 5px;
+  padding-top: 12px;
+}

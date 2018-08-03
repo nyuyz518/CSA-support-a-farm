@@ -18,18 +18,29 @@
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
-        <div class="navbar-header">
+        <!-- <div class="navbar-header"> -->
         <% if logged_in? %>
-        <div>
-          <div><p class="navbarleft navbar-text">Welcome, <%= current_user.user_name %></p></div>
-          <div><%= button_to "Profile", profile_path, method: :get %></div>
-          <div><%= button_to "Logout", logout_path, method: :delete %></div>
-        </div>
+          <div>
+            <p class="navbarleft navbar-text">Welcome, <%= current_user.user_name %></p>
+          </div>
+          <div>
+            <li class="navbarstyling"><%= button_to "Profile", profile_path, method: :get %></li>
+          </div>
+          <div>
+            <li class="navbarstyling"><%= button_to "Logout", logout_path, method: :delete %></li>
+          </div>
         <% else %>
-          <%= button_to "Sign Up", new_user_path, method: :get %>
-          <%= button_to "Login", login_path, method: :get %>
+          <div>
+            <p class="navbarleft navbar-text">So long!</p>
+          </div>
+          <div>
+            <li class="navbarstyling"><%= button_to "Sign Up", new_user_path, method: :get %></li>
+          </div>
+          <div>
+            <li class="navbarstyling"><%= button_to "Login", login_path, method: :get %></li>
+          </div>
         <% end %>
-        </div>
+        <!-- </div> -->
       </div>
     </nav>
 
