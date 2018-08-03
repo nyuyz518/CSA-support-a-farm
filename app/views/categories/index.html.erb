@@ -1,7 +1,10 @@
-<h1>All Available Share Types </h1>
+<div class="page-header">
+  <h1>All Available Share Types<small>   From <%= link_to "Our Farm", farm_path(Farm.first.id) %></small></h1>
+</div>
 
-<%= link_to "Learn More about Our Farm", farm_path(Farm.first.id) %>
-<p>details about how this program works, difference between full and half shares, etc</p>
+<div class="container-fluid">
+  <h4><%= button_to "Add A Share to My Account", new_share_path, controller: "shares", method: :get %></h4>
+</div>
 
 <div class="container-fluid">
   <% @categories.each do |category| %>
@@ -20,7 +23,6 @@
         <li class="list-group-item">Pickup Frequency: Every Other Week</li>
       <% end %>
     </ul>
-  <%= button_to "Add This Share to My Account", new_share_path, controller: "shares", method: :get %>
   </div>
   </div>
   <% end %>

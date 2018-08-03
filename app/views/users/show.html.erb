@@ -1,6 +1,5 @@
 <div class="jumbotron">
-  <h1>Welcome to the <%= Farm.first.name %> CSA!</h1>
-  <p>Learn more about our program <%= link_to "here", farm_path(Farm.first.id) %>.</p>
+  <h1>Welcome to the <%= Farm.first.name %> CSA!<br><small>Learn more about our program <%= link_to "here", farm_path(Farm.first.id) %>.</small></h1>
 </div>
 
 <div class="container-fluid">
@@ -10,6 +9,13 @@
 <div class="container-fluid"><%= image_tag("veggie_basket.jpg", :alt => "Basket of Veggies", :height => 750) %>
 </div>
 <br>
+<div class="container-fluid">
+  <h4><%= button_to "View All of our Offerings", categories_path, :controller => "categories", :method => :get %></h4>
+</div> <br>
+<div class="container-fluid">
+  <h4><%= button_to "Add a Share to My Account", new_share_path, :controller => "shares", :method => :get %></h4>
+</div> <br>
+<hr>
 <div class="container-fluid">
   <h1>Shares Purchased for the <%= Time.now.year %> Growing Season</h1>
 </div>
@@ -28,28 +34,25 @@
     </div>
   <% end %>
 </div>
+<hr>
 
 <div class="container-fluid">
-  <%= button_to "View All of our Offerings", categories_path, :controller => "categories", :method => :get %> <br>
-  <%= button_to "Add a Share to My Account", new_share_path, :controller => "shares", :method => :get %>
-</div>
-
-<div class="container-fluid">
-  <h1>My Wish List for the <%= Time.now.year %> Growing Season</h1>
+  <h1>My Produce Wish List</h1>
 </div>
 
 <div class="container-fluid">
-  <% @user.wish_list_items.each do |item| %>
-  <div class="row">
-    <div class="col-xs-6 col-sm-4 col-md-3">
-      <ul class="list-group">
-        <li class="list-group-item"> <%= item.item %></li>
-      </ul>
-    </div>
-</div>
-<% end %>
-</div>
+  <h4><%= button_to "Add an Item to My Wish List", new_user_item_path, :controller => "user_items", :method => :get %></h4>
+</div><br>
+
 <div class="container-fluid">
-    <%= button_to "Add an Item to My Wish List", wish_list_items_path, :controller => "wish_list_items", :method => :get %>
+  <% @user.wish_list_items.each do |wish_list_item| %>
+      <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <ul class="list-group">
+            <li class="list-group-item"> <%= wish_list_item.item %></li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
 </div>
 <br>

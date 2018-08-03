@@ -5,19 +5,21 @@
 <div class="container-fluid"> <%= image_tag("farmhouse_with_clouds.jpg", :alt => "Our Homestead", :height => 750) %></div>
 
 <div class="container-fluid">
-  <h1>To add: description of CSA program</h1>
+  <h1>What is a CSA?</h1>
+  <p class="lead">Community Supported Agriculture, or CSA for short, is a system which allows a user to purchase seasonal products directly from a farm. Members of our CSA purchase shares at the beginning of our growing season, essentially purchasing a subscription to the foods we produce, and we in turn deliver our products to a collection point of your choice, either weekly or bi-weekly (depending on your selection) from spring through to the fall.</p>
+  <p>The CSA model is cooperative, as both the farm and the users are invested in the system, and both share the burden of risk. Unpredictable weather, crop failures due to pests, blight, or draught are always possibilities, and it is our members' investments which help us to make it through any difficult periods. Our fully organic, family owned farm strives to deliver delicious, healthy, abundant crops to our members, and our members enjoy the fruit of our labors directly.</p>
+  <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. Phasellus tempor mattis ante, sit amet efficitur augue luctus eu. Sed scelerisque, augue et luctus molestie, massa nibh rutrum quam, at accumsan dui velit sit amet neque. Etiam vitae feugiat dolor, vitae luctus nisi. Sed sed sagittis ante, nec aliquet ante. Sed lobortis neque sem, ac ultrices neque tincidunt quis.</p>
 </div>
 
 <div class="container-fluid">
-  <h1>To add: details about the farm</h1>
+  <h1>How It Works</h1>
+  <p class="lead">Our sign-up period begins in January and runs through the end of May. If you would like to buy any shares after our pickups begin, please <b><%= mail_to "csa@riverviewpastures.com", "contact us", subject: "Request to purchase partial shares" %></b> to make arrangements. </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ultricies in dolor sed malesuada. Ut convallis ipsum pellentesque augue lobortis, fermentum facilisis justo porta. Suspendisse tempor posuere ante, quis interdum ligula maximus nec. Duis ut viverra augue, in tincidunt sem. Praesent sit amet ante eu lorem consequat blandit. Nulla viverra ullamcorper tortor, nec sagittis ligula laoreet sit amet. Quisque tincidunt, libero sit amet rutrum sagittis, nunc nibh ullamcorper quam, quis bibendum diam arcu quis mi. Nunc placerat ligula quis tellus faucibus, nec varius lacus consequat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc pellentesque, nulla id porta faucibus, massa nisi scelerisque ex, ut porta risus sapien in tellus. Aliquam at sem sit amet diam imperdiet gravida.</p>
 </div>
 
 <div class="container-fluid">
   <h1>Produce We've Grown for Past CSA Seasons</h1>
-</div>
-
-<div class="container-fluid">
-  <p class="lead">While we won't grow every single food on this list every year, we will make sure to have a large variety of produce for your enjoyment! We look to your <%= link_to "Wish Lists", wish_list_items_path %> when planning our growing season, since we value your support and participation in our CSA.</p>
+  <p class="lead">While we won't grow every single food on this list every year, we will make sure to have a large variety of produce for your enjoyment! We look to your <b><%= link_to "wish lists", new_user_item_path %></b> when planning our growing season, since we value your support and participation in our CSA.</p>
 </div>
 
 <div class="container-fluid">
@@ -29,7 +31,3 @@
   <% end %>
   </div>
 </div>
-
-<!-- text area to leave comments -->
-<!-- contact us -->
-<!-- hyperlinks to social media -->

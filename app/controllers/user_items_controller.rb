@@ -2,6 +2,7 @@ class UserItemsController < ApplicationController
 
   def new
     @user_item = UserItem.new
+    @wish_list_items = WishListItem.all
   end
 
   def create
@@ -16,8 +17,8 @@ class UserItemsController < ApplicationController
 
   def destroy
     if @user_item.delete
-      flash[:notice] = "Item removed from wish list"
-    end 
+      flash[:notice] = "Item removed from wish list."
+    end
   end
 
 

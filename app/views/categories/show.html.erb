@@ -1,13 +1,26 @@
-<h3><%= @category.name %></h3>
-<ul>
-  <li>Total Number of Pickups: <%= @category.pickup_count %></li>
-  <li>Price Per Pickup: $<%= @category.price_per_pickup %></li>
-  <li>Total Price for Season: $<%= @category.price_per_pickup * @category.pickup_count%></li>
-  <li>First Pickup Date: <%= @category.start_date.strftime("%B %e, %Y") %></li>
-  <li>Last Pickup Date: <%= @category.end_date.strftime("%B %e, %Y") %></li>
-</ul>
+<div class="page-header">
+  <h3><%= @category.name %></h3>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-sm-4 col-md-3">
+      <ul class="list-group">
+        <li class="list-group-item">Total Number of Pickups: <%= @category.pickup_count %></li>
+        <li class="list-group-item">Price Per Pickup: $<%= @category.price_per_pickup %></li>
+        <li class="list-group-item">Total Price for Season: $<%= @category.price_per_pickup * @category.pickup_count%></li>
+        <li class="list-group-item">First Pickup Date: <%= @category.start_date.strftime("%B %e, %Y") %></li>
+        <li class="list-group-item">Last Pickup Date: <%= @category.end_date.strftime("%B %e, %Y") %></li>
+      </ul>
+    </div>
+  </div>
+</div>
 <br>
 
-<%= button_to "Return to Your Profile", user_path(current_user), :controller => "users", :method => :get %> <br>
+<div class="container-fluid">
+<h4><%= button_to "Return to Your Profile", user_path(current_user), :controller => "users", :method => :get %></h4>
+</div> <br>
 
-<%= button_to "View All Available Shares", categories_path, :method => :get %>
+<div class="container-fluid">
+  <h4><%= button_to "View All Available Shares", categories_path, :method => :get %></h4>
+</div>

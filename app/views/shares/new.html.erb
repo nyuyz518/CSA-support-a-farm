@@ -1,19 +1,22 @@
-<div class="container-fluid">
+<div class="page-header">
 <h1>Add a Share to My Account</h1>
 </div>
 
 <div class="container-fluid">
 <%= form_for @share do |f| %>
-  <h3><%= f.label "Share Category" %></h3>
+  <h3><%= f.label "Select Your Share" %></h3>
   <%= f.collection_select :category_id, Category.all, :id, :name %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :farm_id, :value => Farm.first.id %>
 <br><br>
-  <%= f.submit %>
-  <br><br>
+  <h4><%= f.submit %></h4>
+
 <% end %>
 </div>
 
 <div class="container-fluid">
-  <%= button_to "Return to Profile", profile_path, :controller => "users", :method => :get %>
+  <h4><%= button_to "Return to Profile", profile_path, :controller => "users", :method => :get %></h4>
 </div>
+<br>
+<div class="container-fluid"><%= image_tag("young-potatoes.jpg", :alt => "Young Potatoes", :height => 500) %>
+  <br>

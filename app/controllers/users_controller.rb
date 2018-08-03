@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
   def show
+    @user_items = UserItem.all
   end
 
   def new
@@ -22,11 +23,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :password,
-      wish_list_items_attributes: [
-        :item,
-        :user_id
-      ]
-    )
+    params.require(:user).permit(:user_name, :password)
   end
 end

@@ -22,6 +22,7 @@
         <% if logged_in? %>
         <div>
           <div><p class="navbarleft navbar-text">Welcome, <%= current_user.user_name %></p></div>
+          <div><%= button_to "Profile", profile_path, method: :get %></div>
           <div><%= button_to "Logout", logout_path, method: :delete %></div>
         </div>
         <% else %>

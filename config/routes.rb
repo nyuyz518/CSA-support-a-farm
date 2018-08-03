@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :users, only: [:show, :new, :create]
   get '/profile', to: 'users#show', as: 'profile'
-  resources :wish_list_items
   resources :farms, only: :show
   resources :shares, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]

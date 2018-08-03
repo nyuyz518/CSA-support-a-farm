@@ -67,8 +67,10 @@ ActiveRecord::Schema.define(version: 2018_08_03_141207) do
 
   create_table "wish_list_items", force: :cascade do |t|
     t.string "item"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wish_list_items_on_user_id"
   end
 
 end

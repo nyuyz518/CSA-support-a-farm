@@ -2,7 +2,7 @@ class WishListItemsController < ApplicationController
   before_action :set_wish_list_item, only: [:create, :destroy]
 
   def index
-  @wish_list_items = WishListItem.all   
+  @wish_list_items = WishListItem.all
   end
 
   def new
@@ -27,18 +27,15 @@ class WishListItemsController < ApplicationController
   end
 
   def destroy
-    if @wish_list_item.destroy
-      redirect_to user_path
-      flash[:notice] = "Item deleted from Wish List"
-    else
-      redirect_to profile_path
-    end
+    @wish_list_item.destroy
+    flash[:notice] = "Item deleted from Wish List"
+    redirect_to profile_path
   end
 
   private
 
   def wish_list_item_params
-    params.require[:wish_list_item].permit[:item, :user_id]
+    params.require(:wish_list_item).permit(:item)
   end
 
   def set_wish_list_item

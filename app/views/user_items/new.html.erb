@@ -1,18 +1,38 @@
 
 <div class="page-header">
-  <h1> Add an Item to My Wish List </h1>
+  <h1>Add an Item to your Produce Wish List</h1>
 </div>
+
+
 
 <div class="container-fluid">
 <%= form_for @user_item do |f| %>
-  <h3><%= f.label "Item Name" %></h3>
+  <h2><%= f.label "Select an Item" %><small>  or View Below for the Full List</small></h2>
   <%= f.collection_select :wish_list_item_id, WishListItem.all, :id, :item %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 <br><br>
-  <%= f.submit "Add to Wish List" %>
-  <br><br>
+  <h4><%= f.submit "Add to Wish List" %></h4>
 <% end %>
 </div>
-
+<div class="container-fluid">
+<h4><%= button_to "Return to Your Profile", user_path(current_user), :controller => "users", :method => :get %></h4>
+</div> <br>
+<br>
 <div class="container-fluid"><%= image_tag("blueberries.jpg", :alt => "blueberries", :height => 500) %>
+</div>
+<hr>
+
+<div class="container-fluid">
+  <h3>Produce We've Grown for Past CSA Seasons</h3>
+  <p>While we won't grow every single food on this list every year, we will make sure to have a large variety of produce for your enjoyment! We consider our members' wish lists seriously when planning our growing season.</p>
+</div>
+
+<div class="container-fluid">
+  <div>
+    <% @wish_list_items.each do |item| %>
+    <ul class="list-group">
+      <li class="list-group-item col-xs-6 col-sm-4 col-md-3"><%= item.item %></li>
+    </ul>
+  <% end %>
+  </div>
 </div>
